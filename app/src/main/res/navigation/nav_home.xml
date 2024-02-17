@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/playList">
+
+    <fragment
+        android:id="@+id/playList"
+        android:name="com.example.technomusic.mvvm.view.fragment.PlaylistsFragment"
+        android:label="@string/playlists"
+        tools:layout="@layout/fragment_playlists" />
+
+    <fragment
+        android:id="@+id/songs"
+        android:name="com.example.technomusic.mvvm.view.fragment.SongsFragment"
+        android:label="@string/songs"
+        tools:layout="@layout/fragment_songs" />
+
+    <fragment
+        android:id="@+id/artist"
+        android:name="com.example.technomusic.mvvm.view.fragment.ArtistFragment"
+        android:label="@string/artist"
+        tools:layout="@layout/fragment_artist" />
+
+    <fragment
+        android:id="@+id/album"
+        android:name="com.example.technomusic.mvvm.view.fragment.AlbumFragment"
+        android:label="@string/album"
+        tools:layout="@layout/fragment_album" />
+
+    <fragment
+        android:id="@+id/genres"
+        android:name="com.example.technomusic.mvvm.view.fragment.GenresFragment"
+        android:label="@string/genres"
+        tools:layout="@layout/fragment_genres" />
+
+</navigation>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="album"
+            type="com.example.technomusic.data.model.Album" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:id="@+id/cardView"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/recycler_view_items_grid_horizontal_padding"
+            android:paddingVertical="@dimen/recycler_view_items_vertical_padding">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivAlbumImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@color/text_indicator_color"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_mic_none"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/dimen_15dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/RoundedCornersAlbum" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvAlbumName"
+                style="@style/TextTitleMedia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_5dp"
+                android:gravity="bottom"
+                android:paddingHorizontal="@dimen/dimen_25dp"
+                android:text="@{album.albumName}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivAlbumImage"
+                tools:text="Song Name" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvAlbumSongsCount"
+                style="@style/TextSubtitleMedia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="@{String.valueOf(album.songs.size()) + ` songs`}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAlbumName"
+                tools:text="Song Name" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="artist"
+            type="com.example.technomusic.data.model.Artist" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_background"
+        android:paddingVertical="@dimen/recycler_view_items_vertical_padding">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivArtistImage"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:background="@color/text_indicator_color"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_mic_none"
+            app:circularflow_defaultRadius="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/RoundedCornersArtist" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvArtistName"
+            style="@style/TextTitleMedia"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:text="@{artist.artistName}"
+            app:layout_constraintBottom_toTopOf="@id/tvSongsCount"
+            app:layout_constraintEnd_toStartOf="@id/ivSongOptions"
+            app:layout_constraintStart_toEndOf="@id/ivArtistImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Song Name" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvSongsCount"
+            style="@style/TextSubtitleMedia"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:text="@{String.valueOf(artist.songs.size()) + ` songs`}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ivSongOptions"
+            app:layout_constraintStart_toEndOf="@id/ivArtistImage"
+            app:layout_constraintTop_toBottomOf="@id/tvArtistName"
+            tools:text="Song Name" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivSongOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_more_vert" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

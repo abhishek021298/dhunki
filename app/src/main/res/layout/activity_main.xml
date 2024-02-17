@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".mvvm.view.activity.MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_background">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/main_background"
+                android:src="@drawable/ic_more_vert"
+                android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+                app:menu="@menu/menu_main"
+                app:navigationIcon="@drawable/ic_menu" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/appBarDivider"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:alpha="0.2"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_bar" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/main_background"
+            android:elevation="8dp"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/appBarDivider"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/text_indicator_color"
+            app:tabInlineLabel="true"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/text_indicator_color"
+            app:tabTextColor="@color/white"
+            tools:layout_editor_absoluteX="16dp" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/tabDivider"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:alpha="0.2"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tab_view" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabDivider" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
